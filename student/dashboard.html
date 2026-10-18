@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - ExamPortal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <style>
+        .notif-wrapper {
+            position: relative;
+        }
+        .notif-bell {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            font-size: 1.2rem;
+        }
+        .notif-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: #ef4444;
+            color: white;
+            border-radius: 10px;
+            padding: 2px 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .notif-dropdown {
+            position: absolute;
+            right: 0;
+            top: 50px;
+            width: 320px;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: none;
+        }
+        .notif-header {
+            padding: 10px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            font-weight: bold;
+            color: #1e3a8a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .notif-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .notif-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.85rem;
+        }
+        .notif-item.unread {
+            background: #eff6ff;
+        }
+        .notif-item .title {
+            font-weight: bold;
+            color: #0f172a;
+            margin-bottom: 3px;
+        }
+        .notif-item .time {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>ExamPortal</h2>
+                <span class="role-badge">Student Portal</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#activeExams" class="nav-item active" onclick="showTab('activeExams')">Active Exams</a>
+                <a href="#upcomingExams" class="nav-item" onclick="showTab('upcomingExams')">Upcoming Exams</a>
+                <a href="#completedExams" class="nav-item" onclick="showTab('completedExams')">Completed Exams & Results</a>
+            </nav>
+            <div class="user-profile">
+                <div class="user-info">
+                    <span id="userName">Student</span>
+                    <small id="userEmail">student@example.com</small>
+                </div>
+                <button class="btn btn-sm btn-secondary" onclick="logout()">Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="content-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <h1 id="pageTitle">Student Dashboard</h1>
+                
+                <div class="notif-wrapper">
+                    <div class="notif-bell" onclick="toggleNotifications()">
+                        🔔
+                        <span id="notifBadge" class="notif-badge" style="display: none;">0</span>
+                    </div>
+                    <div id="notifDropdown" class="notif-dropdown">
+                        <div class="notif-header">
+                            <span>Notifications</span>
+                            <small style="cursor: pointer; color: #3b82f6;" onclick="loadNotifications()">Refresh</small>
+                        </div>
+                        <div id="notifList" class="notif-list">
+                            <div class="notif-item">No notifications yet.</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div id="activeExamsTab" class="tab-content active">
+                <h2 class="section-title">Active Examinations</h2>
+                <div id="activeExamsList" class="exam-grid">
+                    <p class="empty-state">Loading active examinations...</p>
+                </div>
+            </div>
+
+            <div id="upcomingExamsTab" class="tab-content" style="display: none;">
+                <h2 class="section-title">Upcoming Examinations</h2>
+                <div id="upcomingExamsList" class="exam-grid">
+                    <p class="empty-state">Loading upcoming examinations...</p>
+                </div>
+            </div>
+
+            <div id="completedExamsTab" class="tab-content" style="display: none;">
+                <h2 class="section-title">My Completed Examinations & Results</h2>
+                <div id="completedExamsList" class="exam-grid">
+                    <p class="empty-state">Loading completed examination history...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/student.js"></script>
+</body>
+</html>

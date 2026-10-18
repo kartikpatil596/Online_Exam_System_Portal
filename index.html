@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System - College Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .feature-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .role-section {
+            background: #f8fafc;
+            padding: 40px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .role-cards {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .role-card {
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .role-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        .role-card.teacher {
+            border-color: #3b82f6;
+        }
+        .role-card.student {
+            border-color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 class="logo">ExamPortal</h1>
+            <nav>
+                <a href="login.html" class="btn btn-secondary">Sign In</a>
+                <a href="register.html" class="btn btn-primary">Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="hero">
+        <div class="container">
+            <h2>🎓 Smart & Anti-Cheat Online Examination System</h2>
+            <p>A full-stack examination portal built for colleges. Features automated grading, countdown timers, strict window lock, notifications, and Excel/Word export reports.</p>
+            <div class="hero-actions" style="margin-top: 25px;">
+                <a href="login.html" class="btn btn-lg btn-primary">Sign In to Portal</a>
+                <a href="register.html" class="btn btn-lg btn-secondary">Create New Account</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="role-section">
+        <div class="container text-center">
+            <h2>Select Your Portal Access</h2>
+            <p style="color: #64748b;">Choose your role to log in or experience the system features</p>
+            
+            <div class="role-cards">
+                <div class="role-card teacher">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">👨‍🏫</div>
+                    <h3>Teacher / Instructor</h3>
+                    <p style="font-size: 0.85rem; color: #64748b; margin: 15px 0;">
+                        Create question papers, schedule timed exams, broadcast student notifications, review student answer sheets, and export score reports to Excel & Word.
+                    </p>
+                    <a href="login.html" class="btn btn-primary btn-block">Teacher Portal Login</a>
+                </div>
+
+                <div class="role-card student">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">🎓</div>
+                    <h3>Student Portal</h3>
+                    <p style="font-size: 0.85rem; color: #64748b; margin: 15px 0;">
+                        Browse active exams, complete pre-exam rules & agreement, take timed tests with live countdown, auto-save draft answers, and view instant grade scorecards.
+                    </p>
+                    <a href="login.html" class="btn btn-success btn-block" style="background-color: #10b981; color: white;">Student Portal Login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" style="padding: 50px 0;">
+        <h2 class="text-center" style="margin-bottom: 30px;">Key System Capabilities</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Anti-Cheat Window Lock</h3>
+                <p>Monitors window focus & tab switches. Enforces 3-strike violation limit with auto-submit and blocks right-click & copy-paste.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>Live Countdown Timer</h3>
+                <p>Sticky header countdown timer auto-submits when time expires. Visual warnings prompt students when time is low.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Excel & Word Exports</h3>
+                <p>Teachers can export exam marksheets directly to styled Excel (`.xlsx`) spreadsheets or Question Papers to Word (`.docx`).</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📢</div>
+                <h3>Notification System</h3>
+                <p>Real-time notification bell alerts students when new exams are published, schedules change, or results are released.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Online Examination System. All rights reserved. | College Final Year Project</p>
+        </div>
+    </footer>
+</body>
+</html>

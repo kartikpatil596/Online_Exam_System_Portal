@@ -1,0 +1,216 @@
+/* Live Exam Interface Styling */
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.exam-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #1e293b;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.exam-title-box h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.timer-box {
+    background: #0f172a;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #334155;
+}
+
+.timer-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.timer-clock {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ef4444;
+    font-family: monospace;
+}
+
+.exam-workspace {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.question-container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    background: white;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.badge-marks {
+    background: #e2e8f0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+}
+
+.question-text {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.option-item:hover {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+}
+
+.option-item.selected {
+    border-color: var(--primary-color);
+    background: #dbeafe;
+}
+
+.option-item input {
+    margin-right: 1rem;
+    transform: scale(1.2);
+}
+
+.exam-actions {
+    display: flex;
+    gap: 1rem;
+    border-top: 2px solid var(--border-color);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+.btn-submit-exam {
+    margin-left: auto;
+}
+
+/* Palette Sidebar */
+.palette-sidebar {
+    background: #f8fafc;
+    border-left: 1px solid var(--border-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.palette-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.unanswered { background: #cbd5e1; }
+.dot.answered { background: #22c55e; }
+.dot.review { background: #eab308; }
+.dot.answered-review { background: #3b82f6; border: 2px solid #eab308; }
+
+.palette-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+    overflow-y: auto;
+}
+
+.palette-btn {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.palette-btn.current { border: 3px solid #0f172a; }
+.palette-btn.unanswered { background: #e2e8f0; color: #334155; }
+.palette-btn.answered { background: #22c55e; color: white; }
+.palette-btn.review { background: #eab308; color: white; }
+.palette-btn.answered-review { background: #3b82f6; color: white; border: 2px solid #eab308; }
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 450px;
+    width: 100%;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
